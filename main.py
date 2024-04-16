@@ -5,7 +5,11 @@ def encrypt(text):
     length_prefix = f'{len(binary_data):032b}'
     return length_prefix + binary_data
 
-def encode_into_image(text, image_path, output_path):
+def encode_into_image():
+    text = input('Enter Text: ')
+    output_path = "Encoded.png"
+    image_path = 'Original.png'
+
     image = Image.open(image_path)
     pixels = list(image.getdata())
     binary_data = encrypt(text)
@@ -56,6 +60,6 @@ def decode_from_image(image_path):
 
 
 if __name__ == "__main__":
-    output_path = "Encoded.jpeg"
-    decode_from_image(output_path)
+    encode_into_image()
+    decode_from_image('Encoded.png')
 
